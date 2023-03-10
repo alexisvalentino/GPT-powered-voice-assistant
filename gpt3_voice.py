@@ -1,16 +1,17 @@
 import openai
 import pyttsx3
 import speech_recognition as sr
+import time
 
-#Get your OpenAI API key here:
+#get your OpenAI API key here:
 #https://platform.openai.com/account/api-keys
 #insert it below, for example: 
-#openai.api_key = "sk-sOawk7zpZgsgmZDn7tMkM3BlbkFJ0fVYty189yuPlhQC5eH9"
-
+#openai.api_key = "sk-sOawk7zpZgsgmZDn7tMkM3BlbkFJ0fVYty276yuPlhQC5eH9"
 openai.api_key = ""
 
 #Initialize the text-to-speech engine
 engine = pyttsx3.init()
+
 
 def transcribe_audio_to_text(filename):
     recognizer = sr.Recognizer()
@@ -20,6 +21,7 @@ def transcribe_audio_to_text(filename):
         return recognizer.recognize_google(audio)
     except:
         print('Skipping unknown error')
+
 
 def generate_response(prompt):
     response = openai.Completion.create(
@@ -31,6 +33,7 @@ def generate_response(prompt):
         temperature=0.5,
     )
     return response["choices"][0]["text"]
+
 
 def speak_text(text):
     engine.say(text)
@@ -61,14 +64,15 @@ def main():
                 if text:
                     print(f"You said: {text}")
 
-                    #Response using GPT-3
+                      #Response using GPT-3
                     response = generate_response(text)
                     print(f"GPT-3 says: {response}")
 
                     #Read response using text-to-speech
                     speak_text(response)
         except Exception as e:
-            print("An error occured {}".format(e))
+            print("An error occured: {}".format(e))
+
 
 if __name__ == "__main__":
     main()
