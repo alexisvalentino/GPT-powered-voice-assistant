@@ -1,4 +1,4 @@
-# Alexis.ai-Voice-Assistant-Powered-by-ChatGPT
+# Alexis.ai-Voice-Assistant-Assignment Helper
 Alexis - Voice Assistant Powered by ChatGPT
 
 Alexis is an advanced voice assistant powered by ChatGPT, capable of natural language processing and a wide range of functionalities. With Alexis, you can interact with your device in a hands-free manner, allowing you to perform various tasks such as getting information online, and much more, just by using your voice.
